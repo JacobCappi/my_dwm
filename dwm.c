@@ -1876,7 +1876,7 @@ updatebars(void)
 			XSetClassHint(dpy, m->barwin, &ch);
 		}
 		if (!m->extrabarwin) {
-            m->extrabarwin = XCreateWindow(dpy, root, m->wx, m->by, m->ww, bh, 0, depth,
+            m->extrabarwin = XCreateWindow(dpy, root, m->wx, m->eby, m->ww, bh, 0, depth,
                      InputOutput, visual,
                      CWOverrideRedirect|CWBackPixel|CWBorderPixel|CWColormap|CWEventMask, &wa);
 			XDefineCursor(dpy, m->extrabarwin, cursor[CurNormal]->cursor);
