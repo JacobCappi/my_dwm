@@ -37,7 +37,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "vlc",      NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -64,24 +64,25 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define VOL "/home/jnl/Programs/scripts/volumeControl"
+#define VOL "/home/eri/Programs/scripts/volumeControl"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[] = { "firefox", NULL };
-static const char *vlccmd[] = { "vlc", "--playlist-tree", "/home/jnl/Music/", NULL };
-static const char *vsccmd[] = { "code", NULL };
+static const char *vlccmd[] = { "vlc", "--playlist-tree", "/home/eri/Music/Red Velvet", NULL };
+static const char *vscmd[] = { "code", NULL };
+static const char *pdfcmd[] = { "okular", NULL };
 
-static const char *mutecmd[] = { "/home/jnl/Programs/scripts/volumeControl", NULL };
-static const char *volucmd[] = { "/home/jnl/Programs/scripts/volumeControl", "u", NULL };
-static const char *voldcmd[] = { "/home/jnl/Programs/scripts/volumeControl", "d", NULL };
+static const char *mutecmd[] = { "/home/eri/Programs/scripts/volumeControl", NULL };
+static const char *volucmd[] = { "/home/eri/Programs/scripts/volumeControl", "u", NULL };
+static const char *voldcmd[] = { "/home/eri/Programs/scripts/volumeControl", "d", NULL };
 
-static const char *brucmd[] = { "/home/jnl/Programs/scripts/brightControl", "u", NULL };
-static const char *brdcmd[] = { "/home/jnl/Programs/scripts/brightControl", "d", NULL };
+static const char *brucmd[] = { "/home/eri/Programs/scripts/brightControl", "u", NULL };
+static const char *brdcmd[] = { "/home/eri/Programs/scripts/brightControl", "d", NULL };
 
-static const char *srccmd[] = { "/home/jnl/Programs/scripts/screenshot", "d", NULL };
+static const char *srccmd[] = { "/home/eri/Programs/scripts/screenshot", "d", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,7 +91,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = vlccmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = srccmd } },
-	{ MODKEY,                       XK_c,      spawn,          {.v = vsccmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = vscmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = pdfcmd } },
 
 	{ MODKEY,                       XK_F1,      spawn,          {.v = mutecmd } },
 	{ MODKEY,                       XK_F2,      spawn,          {.v = voldcmd } },
